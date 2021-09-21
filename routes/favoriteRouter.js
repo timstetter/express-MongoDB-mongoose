@@ -14,6 +14,8 @@ favoriteRouter
       .populate("user")
       .populate("campsites")
       .then((favorites) => {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json");
         res.json(favorites);
       })
       .catch((err) => next(err));
@@ -29,6 +31,8 @@ favoriteRouter
         favorite
           .save()
           .then((favorite) => {
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
             res.json(favorite);
           })
           .catch((err) => next(err));
@@ -39,6 +43,8 @@ favoriteRouter
         })
           .then((favorite) => {
             console.log("Favorite Created ", favorite);
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
             res.json(favorite);
           })
           .catch((err) => next(err));
@@ -52,6 +58,8 @@ favoriteRouter
     Favorite.findOneAndDelete({ user: req.user._id })
       .then((favorite) => {
         if (favorite) {
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "application/json");
           res.json(favorite);
         } else {
           res.end("You do not have any favorites to delete.");
@@ -81,6 +89,8 @@ favoriteRouter
           favorite
             .save()
             .then((favorite) => {
+              res.statusCode = 200;
+              res.setHeader("Content-Type", "application/json");
               res.json(favorite);
             })
             .catch((err) => next(err));
@@ -92,6 +102,8 @@ favoriteRouter
         })
           .then((favorite) => {
             console.log("Favorite Created ", favorite);
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
             res.json(favorite);
           })
           .catch((err) => next(err));
@@ -114,6 +126,8 @@ favoriteRouter
         favorite
           .save()
           .then((favorite) => {
+            res.statusCode = 200;
+            res.setHeader("Content-Type", "application/json");
             res.json(favorite);
           })
           .catch((err) => next(err));
